@@ -38,12 +38,22 @@ function checkGuess (){
         wrong++
         alert("Wrong President")
         out.innerHTML = "wrong count:"+ wrong
+        if (wrong >= 3) {
+                    wrongGuess();
+                }
+            }
+        }
+        function wrongGuess() {
+            alert("Sorry, game over.");
+        }
     }
 }
 </script>
 <div>
     <img src="Sparrow.jpg" id="bird_img" height="100px" width="100px" onclick="swapImage()">
 </div>
+
+
 <script>
 var useImage=1
 function swapImage(){
