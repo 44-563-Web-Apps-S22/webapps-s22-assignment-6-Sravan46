@@ -19,35 +19,29 @@
 
 <p id="result">This text will be replaced </p>
 
-<script> 
-
-function checkGuess (){
-    console.log("Getting form values")
-    correct=0
-    wrong=0
-    age = document.getElementById("secret").value
-    nick = document.getElementById("input").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(age==nick){
-        correct++
-        alert("You got it right")
-        out.innerHTML = "correct count:"+ correct
-    } else {
-        wrong++
-        alert("Wrong President")
-        out.innerHTML = "wrong count:"+ wrong
-        if (wrong >= 3) {
-                    wrongGuess();
-                }
+<script>
+    let correct = 0, wrong = 0;
+    function checkGuess() {
+        console.log("Getting form values");
+        secret = document.getElementById("secret_president").value;
+        guess = document.getElementById("guess_president").value;
+        out = document.getElementById("result");
+        if (secret == guess) {
+            correct++;
+            alert("You got it right");
+            out.innerHTML = "Correct " + correct + " Wrong " + wrong;
+        } else {
+            wrong++
+            alert("Wrong President");
+            out.innerHTML = "Correct " + correct + " Wrong " + wrong;
+            if (wrong >= 3) {
+                wrongGuess();
             }
         }
-        function wrongGuess() {
-            alert("Sorry, game over.");
-        }
     }
-}
+    function wrongGuess() {
+        alert("Sorry, game over.");
+    }
 </script>
 <div>
     <img src="Sparrow.jpg" id="bird_img" height="100px" width="100px" onclick="swapImage()">
